@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obstacle Films | Premium Film Production</title>
+    <meta name="description" content="Obstacle Films creates stunning visual content - commercials, music videos, and narrative films that captivate audiences.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5F00',
+                        secondary: '#1A1A1A',
+                        accent: '#FF9E00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF5F00;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-secondary text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 py-4 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-display tracking-wider">
+                <span class="text-primary">OBSTACLE</span> FILMS
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-vimeo-v text-xl"></i>
+                </a>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-neon-lights-1230-large.mp4" type="video/mp4">
+        </video>
+        
+        <div class="text-center px-4 z-10">
+            <h1 class="text-6xl md:text-8xl font-display tracking-wide mb-4">
+                <span class="text-primary">STORYTELLING</span> THAT MOVES
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+                We craft visually stunning films that captivate audiences and elevate brands.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#work" class="bg-primary hover:bg-accent text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    View Our Work
+                </a>
+                <a href="#contact" class="border-2 border-white hover:border-primary hover:text-primary font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="animate-bounce">
+                <i class="fas fa-chevron-down text-2xl text-white"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-4xl md:text-5xl font-display mb-6">
+                        WE ARE <span class="text-primary">OBSTACLE</span>
+                    </h2>
+                    <p class="text-lg mb-6">
+                        Founded in 2010, Obstacle Films is a collective of passionate filmmakers dedicated to creating visually compelling stories that resonate.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Our team brings together decades of experience in commercial production, music videos, and narrative filmmaking to deliver exceptional results for our clients.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <h3 class="text-primary font-bold text-xl mb-2">50+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <h3 class="text-primary font-bold text-xl mb-2">15+</h3>
+                            <p>Industry Awards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Film production team" 
+                             class="w-full rounded-lg shadow-2xl transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition duration-500 rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work/Portfolio Section -->
+    <section id="work" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">PORTFOLIO</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Explore our selection of work that showcases our creative vision and technical expertise.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1459&q=80" 
+                         alt="Commercial work" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">Nike - Just Do It</h3>
+                        <p class="text-sm opacity-80 mb-4">Commercial Campaign</p>
+                        <a href="#" class="text-primary font-bold flex items-center">
+                            Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1413&q=80" 
+                         alt="Music video" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">The Weeknd - Blinding Lights</h3>
+                        <p class="text-sm opacity-80 mb-4">Music Video</p>
+                        <a href="#" class="text-primary font-bold flex items-center">
+                            Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1625&q=80" 
+                         alt="Short film" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">The Last Sunset</h3>
+                        <p class="text-sm opacity-80 mb-4">Short Film</p>
+                        <a href="#" class="text-primary font-bold flex items-center">
+                            Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-primary hover:bg-primary hover:text-black text-primary font-bold py-3 px-8 rounded-full transition duration-300">
+                    View Full Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">SERVICES</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Comprehensive film production services tailored to your creative needs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg hover:bg-opacity-70 transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commercial Production</h3>
+                    <p class="mb-4">
+                        High-impact commercials that build brand awareness and drive consumer action.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Concept Development
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Full Production
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Post-Production
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg hover:bg-opacity-70 transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Music Videos</h3>
+                    <p class="mb-4">
+                        Visually stunning music videos that amplify your sound and artistic vision.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Creative Treatment
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Cinematic Storytelling
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Visual Effects
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg hover:bg-opacity-70 transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Narrative Films</h3>
+                    <p class="mb-4">
+                        Compelling stories brought to life through exceptional filmmaking.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Script Development
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Full Production
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i> Festival Strategy
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    CLIENT <span class="text-primary">TESTIMONIALS</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Don't just take our word for it. Here's what our clients say.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-secondary p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-sm opacity-80">Marketing Director, Nike</p>
+                        </div>
+                    </div>
+                    <p>
+                        "Working with Obstacle Films was a game-changer for our campaign. Their creative vision and attention to detail resulted in a commercial that exceeded all our expectations."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-secondary p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-sm opacity-80">Artist Manager</p>
+                        </div>
+                    </div>
+                    <p>
+                        "The music video Obstacle Films created for our artist went viral and helped launch their career. Their team understood our vision perfectly and executed flawlessly."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-secondary p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emily Rodriguez</h4>
+                            <p class="text-sm opacity-80">Producer, Netflix</p>
+                        </div>
+                    </div>
+                    <p>
+                        "Their narrative work is exceptional. Obstacle Films brought a unique visual style to our project that made it stand out in the festival circuit. Highly recommended."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-4xl md:text-5xl font-display mb-6">
+                        GET IN <span class="text-primary">TOUCH</span>
+                    </h2>
+                    <p class="text-lg mb-8">
+                        Ready to start your next project? Contact us to discuss how we can bring your vision to life.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Our Studio</h4>
+                                <p>123 Film Lane, Los Angeles, CA 90028</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email Us</h4>
+                                <p>info@obstaclefilms.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Call Us</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-bold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-vimeo-v"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-black bg-opacity-50 p-8 rounded-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="project" class="block mb-2">Project Type</label>
+                            <select id="project" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition">
+                                <option value="">Select a project type</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="music-video">Music Video</option>
+                                <option value="short-film">Short Film</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-accent text-black font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-3xl font-display tracking-wider">
+                        <span class="text-primary">OBSTACLE</span> FILMS
+                    </a>
+                    <p class="mt-2 text-sm opacity-70">
+                        Creating visual stories that inspire and captivate.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold mb-2">Quick Links</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                            <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                            <li><a href="#work" class="hover:text-primary transition">Work</a></li>
+                            <li><a href="#services" class="hover:text-primary transition">Services</a></li>
+                            <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Services</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#" class="hover:text-primary transition">Commercials</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Music Videos</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Short Films</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Post-Production</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Legal</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm opacity-70 mb-4 md:mb-0">
+                    &copy; 2023 Obstacle Films. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-vimeo-v"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle functionality would go here
+        // You would need to add the mobile menu HTML structure first
+        
+        // Animation on scroll would be implemented here
+        // Using something like AOS.js or Intersection Observer API
+    </script>
+</body>
+</html>
