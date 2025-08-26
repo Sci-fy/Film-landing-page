@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Obstacle Films | Premium Film Production</title>
+    <meta name="description" content="Learn about Obstacle Films - our team, mission, and approach to creating emotionally intelligent brand storytelling through film.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5F00',
+                        secondary: '#1A1A1A',
+                        accent: '#FF9E00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF5F00;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .team-member {
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Contact menu styles */
+        .contact-menu {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 99;
+            background: rgba(26, 26, 26, 0.98);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 95, 0, 0.2);
+        }
+        
+        .contact-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .contact-menu a {
+            display: block;
+            color: white;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .contact-menu a:hover {
+            color: #FF5F00;
+            padding-left: 8px;
+        }
+        
+        .contact-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Navigation menu button style */
+        .nav-menu-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-menu-btn:hover {
+            background: rgba(255, 95, 0, 0.2);
+        }
+        
+        .nav-menu-btn.active {
+            background: rgba(255, 95, 0, 0.3);
+        }
+        
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-secondary text-white font-sans">
+    <!-- Contact Menu -->
+    <div class="contact-menu" id="contactMenu">
+        <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 py-4 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-display tracking-wider">
+                <span class="text-primary">OBSTACLE</span> FILMS
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link text-primary">About</a>
+                <a href="index.html#sectors" class="nav-link">Sectors</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#awards" class="nav-link">Awards</a>
+                <a href="index.html#clients" class="nav-link">Clients</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-vimeo-v text-xl"></i>
+                </a>
+                <div class="nav-menu-btn" id="navMenuBtn">
+                    <i class="fas fa-bars text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-display mb-6">
+                ABOUT <span class="text-primary">OBSTACLE</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+                Emotionally intelligent brand storytelling through film since 2012.
+            </p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-display mb-6">
+                        OUR <span class="text-primary">STORY</span>
+                    </h2>
+                    <p class="text-lg mb-6">
+                        Obstacle Films brings emotional intelligence to brand storytelling through people-centric documentaries and films.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Founded in 2012, we've grown into a respected film production studio known for our authentic approach to storytelling and our ability to connect with audiences on a human level.
+                    </p>
+                    <p class="text-lg">
+                        Our work spans commercials, music videos, documentary films, and branded content, always with a focus on creating meaningful connections between brands and their audiences.
+                    </p>
+                </div>
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1579033385971-a5c34d734b53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Film production" 
+                         class="w-full rounded-lg shadow-2xl transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition duration-500 rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">TEAM</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Meet the talented individuals behind Obstacle Films.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Team Member 1 -->
+                <div class="team-member text-center">
+                    <div class="mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Oliver Nias" 
+                             class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Oliver Nias</h3>
+                    <p class="text-primary font-semibold mb-4">Founder & Director</p>
+                    <p class="text-gray-300">
+                        BIFA-nominated filmmaker with over 15 years of experience in documentary and commercial filmmaking.
+                    </p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member text-center">
+                    <div class="mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Matt Roberts" 
+                             class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Matt Roberts</h3>
+                    <p class="text-primary font-semibold mb-4">Creative Partner</p>
+                    <p class="text-gray-300">
+                        Award-winning director and cinematographer specializing in visual storytelling and brand campaigns.
+                    </p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member text-center">
+                    <div class="mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Hugo Peers" 
+                             class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Hugo Peers</h3>
+                    <p class="text-primary font-semibold mb-4">Executive Producer</p>
+                    <p class="text-gray-300">
+                        Seasoned producer with extensive experience at MJZ, Sonny London, and Independent Entertainment.
+                    </p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member text-center">
+                    <div class="mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="Erin Hughes" 
+                             class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Erin Hughes</h3>
+                    <p class="text-primary font-semibold mb-4">Producer</p>
+                    <p class="text-gray-300">
+                        Creative producer with a talent for managing complex productions and bringing visionary ideas to life.
+                    </p>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="team-member text-center">
+                    <div class="mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Sarah Jenkins" 
+                             class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Sarah Jenkins</h3>
+                    <p class="text-primary font-semibold mb-4">Head of Production</p>
+                    <p class="text-gray-300">
+                        Skilled production manager with expertise in budgeting, scheduling, and logistics for film projects.
+                    </p>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="team-member text-center">
+                    <div class="mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="James Wilson" 
+                             class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">James Wilson</h3>
+                    <p class="text-primary font-semibold mb-4">Creative Director</p>
+                    <p class="text-gray-300">
+                        Visionary creative director with a background in advertising and brand strategy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">APPROACH</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    How we create meaningful stories that connect with audiences.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Emotional Intelligence</h3>
+                    <p>
+                        We believe the most powerful stories are those that connect on an emotional level. Our approach focuses on authentic human experiences.
+                    </p>
+                </div>
+                
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Collaboration</h3>
+                    <p>
+                        We work closely with our clients throughout the process, ensuring their vision is realized while bringing our creative expertise to the table.
+                    </p>
+                </div>
+                
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation</h3>
+                    <p>
+                        We stay at the forefront of filmmaking technology and techniques to deliver cutting-edge content that stands out.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">CLIENTS</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    We've had the privilege of working with amazing brands and organizations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="client-logo text-center text-xl font-bold p-4">NIKE</div>
+                <div class="client-logo text-center text-xl font-bold p-4">ADIDAS</div>
+                <div class="client-logo text-center text-xl font-bold p-4">APPLE</div>
+                <div class="client-logo text-center text-xl font-bold p-4">SONY</div>
+                <div class="client-logo text-center text-xl font-bold p-4">BBC</div>
+                <div class="client-logo text-center text-xl font-bold p-4">CHANNEL 4</div>
+                <div class="client-logo text-center text-xl font-bold p-4">WARNER BROS</div>
+                <div class="client-logo text-center text-xl font-bold p-4">UNIVERSAL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary text-black">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-display mb-6">
+                READY TO CREATE <span class="text-white">TOGETHER?</span>
+            </h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Let's discuss how we can bring your vision to life through powerful storytelling.
+            </p>
+            <a href="index.html#contact" class="bg-black text-primary hover:bg-secondary hover:text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 inline-block">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-3xl font-display tracking-wider">
+                        <span class="text-primary">OBSTACLE</span> FILMS
+                    </a>
+                    <p class="mt-2 text-sm opacity-70">
+                        Creating visual stories that inspire and captivate.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold mb-2">Sectors</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Commercials</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Music Videos</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Narrative Films</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Fashion</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Services</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#services" class="hover:text-primary transition">Film Production</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Social Content</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Creative Direction</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Story Development</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Connect</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#contact" class="hover:text-primary transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Instagram</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Vimeo</a></li>
+                            <li><a href="#" class="hover:text-primary transition">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm opacity-70 mb-4 md:mb-0">
+                    &copy; 2025 Obstacle Films. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-vimeo-v"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href').startsWith('index.html')) return;
+                
+                e.preventDefault();
+                
+                // Close menu if open
+                contactMenu.classList.remove('active');
+                navMenuBtn.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Navigation menu button functionality
+        const navMenuBtn = document.getElementById('navMenuBtn');
+        const contactMenu = document.getElementById('contactMenu');
+        
+        if(navMenuBtn) {
+            navMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                contactMenu.classList.toggle('active');
+                navMenuBtn.classList.toggle('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenuBtn && !navMenuBtn.contains(e.target) && !contactMenu.contains(e.target)) {
+                contactMenu.classList.remove('active');
+                navMenuBtn.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking on a menu item
+        if(contactMenu) {
+            contactMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    contactMenu.classList.remove('active');
+                    if(navMenuBtn) navMenuBtn.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
