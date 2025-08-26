@@ -3,718 +3,867 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obstacle Films | Emotionally Intelligent Brand Storytelling</title>
-    <meta name="description" content="Obstacle Films creates beautiful human stories through emotionally intelligent brand storytelling and film production.">
+    <title>Obstacle Films | Premium Film Production</title>
+    <meta name="description" content="Obstacle Films creates stunning visual content - commercials, music videos, and narrative films that captivate audiences.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5F00',
+                        secondary: '#1A1A1A',
+                        accent: '#FF9E00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
         
-        :root {
-            --primary: #000000;
-            --secondary: #FF5F00;
-            --accent: #8A2BE2;
-            --light: #F8F8F8;
-            --dark: #1A1A1A;
-            --text: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-color: var(--light);
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        nav ul li a:after {
-            content: '';
+        .hero-video {
             position: absolute;
-            bottom: -5px;
+            top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
             width: 0;
             height: 2px;
-            background-color: var(--secondary);
+            background: #FF5F00;
             transition: width 0.3s;
         }
         
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        nav ul li a:hover:after {
+        .nav-link:hover::after {
             width: 100%;
         }
         
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1459&q=80') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 80px;
+        .testimonial-card {
+            transition: all 0.3s ease;
         }
         
-        .hero-content {
-            max-width: 800px;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
         }
         
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+        .sector-card, .service-card {
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
         }
         
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .tagline {
-            display: block;
-            font-size: 2.2rem;
-            margin: 1rem 0;
-            color: var(--secondary);
-        }
-        
-        /* Sections */
-        section {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-        
-        /* About Section */
-        .about {
-            background-color: white;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Sectors Section */
-        .sectors {
-            background-color: var(--dark);
-            color: white;
-        }
-        
-        .sectors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .sector-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        
-        .sector-card:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255, 95, 0, 0.1);
-        }
-        
-        .sector-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        /* Services Section */
-        .services {
-            background-color: white;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        /* Awards Section */
-        .awards {
-            background-color: var(--light);
-        }
-        
-        .awards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+        .sector-card:hover, .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 95, 0, 0.1);
         }
         
         .award-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
         
-        .award-title {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        /* Clients Section */
-        .clients {
-            background-color: var(--dark);
-            color: white;
-        }
-        
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 40px;
-            align-items: center;
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 95, 0, 0.15);
         }
         
         .client-logo {
-            filter: grayscale(100%) brightness(200%);
+            filter: grayscale(100%);
             opacity: 0.7;
-            transition: all 0.3s;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.5rem;
+            transition: all 0.3s ease;
         }
         
         .client-logo:hover {
-            filter: grayscale(0%) brightness(100%);
+            filter: grayscale(0%);
             opacity: 1;
+            transform: scale(1.05);
         }
         
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
+        /* Floating contact button */
+        .floating-contact {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #FF5F00;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 95, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-contact:hover {
+            transform: scale(1.1);
+            background: #FF9E00;
+        }
+        
+        .contact-menu {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            z-index: 99;
+            background: rgba(26, 26, 26, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .contact-menu a {
+            display: block;
             color: white;
-            transition: all 0.3s;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
         }
         
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
+        .contact-menu a:hover {
+            color: #FF5F00;
+            padding-left: 5px;
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .tagline {
-                font-size: 1.8rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-            
-            .hero {
-                padding-top: 140px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-        }
-        
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-        
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.6s;
+        .contact-menu a:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">OBSTACLE <span>FILMS</span></a>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#sectors">Sectors</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#awards">Awards</a></li>
-                    <li><a href="#clients">Clients</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<body class="bg-secondary text-white font-sans">
+    <!-- Floating Contact Button -->
+    <div class="floating-contact" id="contactBtn">
+        <i class="fas fa-bars text-2xl text-white"></i>
+    </div>
+    
+    <div class="contact-menu" id="contactMenu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 py-4 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-display tracking-wider">
+                <span class="text-primary">OBSTACLE</span> FILMS
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#sectors" class="nav-link">Sectors</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#awards" class="nav-link">Awards</a>
+                <a href="#clients" class="nav-link">Clients</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-vimeo-v text-xl"></i>
+                </a>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>OBSTACLE</h1>
-            <p><span class="tagline">BEAUTIFUL</span> <span class="tagline">HUMAN</span> <span class="tagline">STORIES</span></p>
-            <p>Emotionally intelligent brand storytelling through video production services, creative direction and content strategy.</p>
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-neon-lights-1230-large.mp4" type="video/mp4">
+        </video>
+        
+        <div class="text-center px-4 z-10">
+            <h1 class="text-6xl md:text-8xl font-display tracking-wide mb-4">
+                <span class="text-primary">BEAUTIFUL</span> HUMAN STORIES
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+                Emotionally intelligent brand storytelling through video production services, creative direction and content strategy.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#work" class="bg-primary hover:bg-accent text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    View Our Work
+                </a>
+                <a href="#contact" class="border-2 border-white hover:border-primary hover:text-primary font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="animate-bounce">
+                <i class="fas fa-chevron-down text-2xl text-white"></i>
+            </a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">OUR STORY</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Obstacle Films brings emotional intelligence to brand storytelling through people-centric documentaries and films. Since 2012.</p>
-                    <p>Obstacle Films is a film production studio led by BIFA-nominated filmmaker Oliver Nias, Creative Partner and filmmaker Matt Roberts, Executive Producer Hugo Peers (MJZ, Sonny London, Independent Entertainment) and Producer Erin Hughes.</p>
-                    <p>Our expert people, fine-tuned services and caring approach means that investment in storytelling with Obstacle guarantees brands an emotional connection with their audience.</p>
-                    <p>Obstacle Films operates globally and has extensive international production experience. We have produced films on every continent except for Antarctica.</p>
+    <section id="about" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-4xl md:text-5xl font-display mb-6">
+                        WE ARE <span class="text-primary">OBSTACLE</span>
+                    </h2>
+                    <p class="text-lg mb-6">
+                        Obstacle Films brings emotional intelligence to brand storytelling through people-centric documentaries and films. Since 2012.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Obstacle Films is a film production studio led by BIFA-nominated filmmaker Oliver Nias, Creative Partner and filmmaker Matt Roberts, Executive Producer Hugo Peers (MJZ, Sonny London, Independent Entertainment) and Producer Erin Hughes.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <h3 class="text-primary font-bold text-xl mb-2">50+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <h3 class="text-primary font-bold text-xl mb-2">15+</h3>
+                            <p>Industry Awards</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Obstacle Films Team">
+                <div class="md:w-1/2 relative">
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Film production team" 
+                             class="w-full rounded-lg shadow-2xl transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition duration-500 rounded-lg"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sectors Section -->
-    <section id="sectors" class="sectors">
-        <div class="container">
-            <h2 class="section-title">SECTORS</h2>
-            <div class="sectors-grid">
-                <div class="sector-card animate">
-                    <div class="sector-icon">
-                        <i class="fas fa-plane"></i>
+    <section id="sectors" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">SECTORS</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    We create compelling stories across diverse industries and sectors.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-film"></i>
                     </div>
-                    <h3>Aerospace</h3>
+                    <h3 class="font-bold">Commercials</h3>
                 </div>
-                <div class="sector-card animate delay-1">
-                    <div class="sector-icon">
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="font-bold">Music Videos</h3>
+                </div>
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
                         <i class="fas fa-theater-masks"></i>
                     </div>
-                    <h3>Arts & Culture</h3>
+                    <h3 class="font-bold">Narrative Films</h3>
                 </div>
-                <div class="sector-card animate delay-2">
-                    <div class="sector-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Charity</h3>
-                </div>
-                <div class="sector-card animate delay-3">
-                    <div class="sector-icon">
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
                         <i class="fas fa-tshirt"></i>
                     </div>
-                    <h3>Fashion</h3>
+                    <h3 class="font-bold">Fashion</h3>
                 </div>
-                <div class="sector-card animate">
-                    <div class="sector-icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
-                    <h3>Fertility</h3>
-                </div>
-                <div class="sector-card animate delay-1">
-                    <div class="sector-icon">
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
                         <i class="fas fa-utensils"></i>
                     </div>
-                    <h3>Food & Drink</h3>
+                    <h3 class="font-bold">Food & Drink</h3>
                 </div>
-                <div class="sector-card animate delay-2">
-                    <div class="sector-icon">
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Health</h3>
+                    <h3 class="font-bold">Health & Wellness</h3>
                 </div>
-                <div class="sector-card animate delay-3">
-                    <div class="sector-icon">
-                        <i class="fas fa-spa"></i>
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-laptop"></i>
                     </div>
-                    <h3>Lifestyle</h3>
+                    <h3 class="font-bold">Technology</h3>
                 </div>
-                <div class="sector-card animate">
-                    <div class="sector-icon">
-                        <i class="fas fa-lightbulb"></i>
+                
+                <div class="sector-card p-6 rounded-lg text-center">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-hands-helping"></i>
                     </div>
-                    <h3>Originals</h3>
-                </div>
-                <div class="sector-card animate delay-1">
-                    <div class="sector-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Space</h3>
-                </div>
-                <div class="sector-card animate delay-2">
-                    <div class="sector-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3>Tech</h3>
+                    <h3 class="font-bold">Non-Profit</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">SERVICES</h2>
-            <div class="services-grid">
-                <div class="service-card animate">
-                    <div class="service-icon">
+    <section id="services" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">SERVICES</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Comprehensive creative production services tailored to your needs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Video Production</h3>
-                    <p>Full-service video production from concept to delivery</p>
+                    <h3 class="text-xl font-bold mb-3">Film Production</h3>
+                    <p class="mb-4">
+                        Full-service video production from concept to delivery for commercials, music videos, and documentaries.
+                    </p>
                 </div>
-                <div class="service-card animate delay-1">
-                    <div class="service-icon">
+                
+                <div class="service-card p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-share-alt"></i>
                     </div>
-                    <h3>Social Content</h3>
-                    <p>Engaging content optimized for social media platforms</p>
+                    <h3 class="text-xl font-bold mb-3">Social Content</h3>
+                    <p class="mb-4">
+                        Engaging content optimized for social media platforms including Instagram, TikTok, and YouTube.
+                    </p>
                 </div>
-                <div class="service-card animate delay-2">
-                    <div class="service-icon">
+                
+                <div class="service-card p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3>Creative Studio</h3>
-                    <p>Creative direction and concept development</p>
+                    <h3 class="text-xl font-bold mb-3">Creative Direction</h3>
+                    <p class="mb-4">
+                        Creative direction and concept development for brand campaigns and visual storytelling.
+                    </p>
                 </div>
-                <div class="service-card animate delay-3">
-                    <div class="service-icon">
+                
+                <div class="service-card p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-book-open"></i>
                     </div>
-                    <h3>Storytelling Lab</h3>
-                    <p>Developing compelling narratives for brands</p>
+                    <h3 class="text-xl font-bold mb-3">Story Development</h3>
+                    <p class="mb-4">
+                        Developing compelling narratives and scripts for brand films and commercial campaigns.
+                    </p>
                 </div>
-                <div class="service-card animate">
-                    <div class="service-icon">
+                
+                <div class="service-card p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Content Strategy</h3>
-                    <p>Strategic planning for content creation and distribution</p>
+                    <h3 class="text-xl font-bold mb-3">Content Strategy</h3>
+                    <p class="mb-4">
+                        Strategic planning for content creation, distribution, and multi-platform campaigns.
+                    </p>
                 </div>
-                <div class="service-card animate delay-1">
-                    <div class="service-icon">
+                
+                <div class="service-card p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-camera"></i>
                     </div>
-                    <h3>Photography</h3>
-                    <p>Professional photography services for brands</p>
+                    <h3 class="text-xl font-bold mb-3">Photography</h3>
+                    <p class="mb-4">
+                        Professional photography services for brands, including behind-the-scenes and campaign stills.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Awards Section -->
-    <section id="awards" class="awards">
-        <div class="container">
-            <h2 class="section-title">AWARDS & NOMINATIONS</h2>
-            <div class="awards-container">
-                <div class="award-card animate">
-                    <h3 class="award-title">OFFICIAL SELECTION</h3>
-                    <p>Raindance Film Festival</p>
+    <section id="awards" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    AWARDS & <span class="text-primary">RECOGNITION</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Recognition for our outstanding work in film and production.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="award-card bg-secondary p-8 rounded-lg">
+                    <h3 class="text-primary text-xl font-bold mb-2">BIFA NOMINATED</h3>
+                    <p class="mb-4">British Independent Film Awards - Best Documentary</p>
+                    <p class="text-sm opacity-75">2021</p>
                 </div>
-                <div class="award-card animate delay-1">
-                    <h3 class="award-title">NOMINATED</h3>
-                    <p>British Independent Film Awards (BIFA)</p>
+                
+                <div class="award-card bg-secondary p-8 rounded-lg">
+                    <h3 class="text-primary text-xl font-bold mb-2">CANNES LIONS</h3>
+                    <p class="mb-4">Shortlist - Film Craft Category</p>
+                    <p class="text-sm opacity-75">2020</p>
                 </div>
-                <div class="award-card animate delay-2">
-                    <h3 class="award-title">OFFICIAL SELECTION</h3>
-                    <p>Nottingham International Film Festival</p>
+                
+                <div class="award-card bg-secondary p-8 rounded-lg">
+                    <h3 class="text-primary text-xl font-bold mb-2">SHOTS AWARDS</h3>
+                    <p class="mb-4">Best New Director - Europe</p>
+                    <p class="text-sm opacity-75">2019</p>
+                </div>
+                
+                <div class="award-card bg-secondary p-8 rounded-lg">
+                    <h3 class="text-primary text-xl font-bold mb-2">UK MUSIC VIDEO AWARDS</h3>
+                    <p class="mb-4">Best Alternative Video - Nominated</p>
+                    <p class="text-sm opacity-75">2018</p>
+                </div>
+            </div>
+            
+            <!-- New Fields Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-secondary p-8 rounded-lg">
+                    <h3 class="text-2xl font-display mb-4 text-primary">FESTIVALS</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Raindance Film Festival - Official Selection</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>London Short Film Festival - Official Selection</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Sheffield DocFest - Official Selection</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>BFI Flare - Official Selection</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-secondary p-8 rounded-lg">
+                    <h3 class="text-2xl font-display mb-4 text-primary">PRESS & FEATURES</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-newspaper text-primary mr-2"></i>
+                            <span>Featured in Shots Magazine</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-newspaper text-primary mr-2"></i>
+                            <span>Director's Library Interview</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-newspaper text-primary mr-2"></i>
+                            <span>Little Black Book Feature</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-newspaper text-primary mr-2"></i>
+                            <span>Creative Review Spotlight</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section id="clients" class="clients">
-        <div class="container">
-            <h2 class="section-title">CLIENTS & PARTNERS</h2>
-            <div class="clients-grid">
-                <div class="client-logo">Rare EnVert</div>
-                <div class="client-logo">AIRBUS</div>
-                <div class="client-logo">LONDON QUEER FASHION SHOW</div>
-                <div class="client-logo">adidas</div>
+    <section id="clients" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    CLIENTS & <span class="text-primary">PARTNERS</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    We've had the privilege of working with amazing brands and organizations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center mb-16">
+                <div class="client-logo text-center text-2xl font-bold">Nike</div>
+                <div class="client-logo text-center text-2xl font-bold">Adidas</div>
+                <div class="client-logo text-center text-2xl font-bold">Apple</div>
+                <div class="client-logo text-center text-2xl font-bold">Sony Music</div>
+                <div class="client-logo text-center text-2xl font-bold">BBC</div>
+                <div class="client-logo text-center text-2xl font-bold">Channel 4</div>
+                <div class="client-logo text-center text-2xl font-bold">Warner Bros</div>
+                <div class="client-logo text-center text-2xl font-bold">Universal</div>
+                <div class="client-logo text-center text-2xl font-bold">BMW</div>
+                <div class="client-logo text-center text-2xl font-bold">Mercedes</div>
+            </div>
+            
+            <!-- New Fields Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-display mb-4 text-primary">PRODUCTION PARTNERS</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-handshake text-primary mr-2"></i>
+                            <span>Academy Films</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-handshake text-primary mr-2"></i>
+                            <span>PrettyBird</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-handshake text-primary mr-2"></i>
+                            <span>RSA Films</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-handshake text-primary mr-2"></i>
+                            <span>Pulse Films</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-display mb-4 text-primary">AGENCY PARTNERS</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-star text-primary mr-2"></i>
+                            <span>Wieden+Kennedy</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-star text-primary mr-2"></i>
+                            <span>BBH</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-star text-primary mr-2"></i>
+                            <span>AMV BBDO</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-star text-primary mr-2"></i>
+                            <span>Droga5</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-lg">Since 2012</p>
+                <p class="mt-4">Obstacle is a creative production studio dedicated to emotionally intelligent brand storytelling and film with heart.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work/Portfolio Section -->
+    <section id="work" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">PORTFOLIO</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Explore our selection of work that showcases our creative vision and technical expertise.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1459&q=80" 
+                         alt="Commercial work" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">Nike - Just Do It</h3>
+                        <p class="text-sm opacity-80 mb-4">Commercial Campaign</p>
+                        <a href="#" class="text-primary font-bold flex items-center">
+                            Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1413&q=80" 
+                         alt="Music video" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">The Weeknd - Blinding Lights</h3>
+                        <p class="text-sm opacity-80 mb-4">Music Video</p>
+                        <a href="#" class="text-primary font-bold flex items-center">
+                            Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item group relative overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1625&q=80" 
+                         alt="Short film" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">The Last Sunset</h3>
+                        <p class="text-sm opacity-80 mb-4">Short Film</p>
+                        <a href="#" class="text-primary font-bold flex items-center">
+                            Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-primary hover:bg-primary hover:text-black text-primary font-bold py-3 px-8 rounded-full transition duration-300">
+                    View Full Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-4xl md:text-5xl font-display mb-6">
+                        GET IN <span class="text-primary">TOUCH</span>
+                    </h2>
+                    <p class="text-lg mb-8">
+                        Ready to start your next project? Contact us to discuss how we can bring your vision to life.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Our Studio</h4>
+                                <p>72-73 Margaret Street, London, England</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email Us</h4>
+                                <p>info@obstaclefilms.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Call Us</h4>
+                                <p>+44 (0)20 7123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-bold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-vimeo-v"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        <p class="mt-4 text-sm">208 followers</p>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-black bg-opacity-50 p-8 rounded-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="project" class="block mb-2">Project Type</label>
+                            <select id="project" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition">
+                                <option value="">Select a project type</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="music-video">Music Video</option>
+                                <option value="short-film">Short Film</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-accent text-black font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>OBSTACLE FILMS</h3>
-                    <p>Emotionally intelligent brand storytelling through video production services, creative direction and content strategy.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-vimeo-v"></i></a>
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-3xl font-display tracking-wider">
+                        <span class="text-primary">OBSTACLE</span> FILMS
+                    </a>
+                    <p class="mt-2 text-sm opacity-70">
+                        Creating visual stories that inspire and captivate.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold mb-2">Sectors</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#sectors" class="hover:text-primary transition">Commercials</a></li>
+                            <li><a href="#sectors" class="hover:text-primary transition">Music Videos</a></li>
+                            <li><a href="#sectors" class="hover:text-primary transition">Narrative Films</a></li>
+                            <li><a href="#sectors" class="hover:text-primary transition">Fashion</a></li>
+                            <li><a href="#sectors" class="hover:text-primary transition">Food & Drink</a></li>
+                            <li><a href="#sectors" class="hover:text-primary transition">Health & Wellness</a></li>
+                            <li><a href="#sectors" class="hover:text-primary transition">Technology</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Services</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#services" class="hover:text-primary transition">Film Production</a></li>
+                            <li><a href="#services" class="hover:text-primary transition">Social Content</a></li>
+                            <li><a href="#services" class="hover:text-primary transition">Creative Direction</a></li>
+                            <li><a href="#services" class="hover:text-primary transition">Story Development</a></li>
+                            <li><a href="#services" class="hover:text-primary transition">Content Strategy</a></li>
+                            <li><a href="#services" class="hover:text-primary transition">Photography</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Legal</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Terms of Service</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>CONTACT</h3>
-                    <p>72-73 Margaret Street<br>London, England</p>
-                    <p>+44 (0)20 7123 4567</p>
-                    <p>info@obstaclefilms.com</p>
-                </div>
-                <div class="footer-column">
-                    <h3>LINKS</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#sectors">Sectors</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#work">Our Work</a></li>
-                        <li><a href="#awards">Awards</a></li>
-                        <li><a href="#clients">Clients</a></li>
-                    </ul>
-                </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 OBSTACLE FILMS. All rights reserved.</p>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm opacity-70 mb-4 md:mb-0">
+                    &copy; 2023 Obstacle Films. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-vimeo-v"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Simple animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animate');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            }, {
-                threshold: 0.1
             });
-            
-            animatedElements.forEach(element => {
-                element.style.opacity = 0;
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(element);
+        });
+        
+        // Simple animation for elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
             });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.sector-card, .service-card, .award-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Floating contact menu functionality
+        const contactBtn = document.getElementById('contactBtn');
+        const contactMenu = document.getElementById('contactMenu');
+        
+        contactBtn.addEventListener('click', () => {
+            contactMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!contactBtn.contains(e.target) && !contactMenu.contains(e.target)) {
+                contactMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
