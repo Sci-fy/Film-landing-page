@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Obstacle Films | Premium Film Production</title>
+    <meta name="description" content="Get in touch with Obstacle Films to discuss your next project. We create compelling visual stories that captivate audiences.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5F00',
+                        secondary: '#1A1A1A',
+                        accent: '#FF9E00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF5F00;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Contact menu styles */
+        .contact-menu {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 99;
+            background: rgba(26, 26, 26, 0.98);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 95, 0, 0.2);
+        }
+        
+        .contact-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .contact-menu a {
+            display: block;
+            color: white;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .contact-menu a:hover {
+            color: #FF5F00;
+            padding-left: 8px;
+        }
+        
+        .contact-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Navigation menu button style */
+        .nav-menu-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-menu-btn:hover {
+            background: rgba(255, 95, 0, 0.2);
+        }
+        
+        .nav-menu-btn.active {
+            background: rgba(255, 95, 0, 0.3);
+        }
+        
+        /* Form styling */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(255, 95, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-secondary text-white font-sans">
+    <!-- Contact Menu -->
+    <div class="contact-menu" id="contactMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#sectors">Sectors</a>
+        <a href="index.html#services">Services</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 py-4 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-display tracking-wider">
+                <span class="text-primary">OBSTACLE</span> FILMS
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#sectors" class="nav-link">Sectors</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#awards" class="nav-link">Awards</a>
+                <a href="index.html#clients" class="nav-link">Clients</a>
+                <a href="contact.html" class="nav-link text-primary">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-vimeo-v text-xl"></i>
+                </a>
+                <div class="nav-menu-btn" id="navMenuBtn">
+                    <i class="fas fa-bars text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-display mb-6">
+                GET IN <span class="text-primary">TOUCH</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+                Ready to start your next project? Contact us to discuss how we can bring your vision to life.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-display mb-8">
+                        CONTACT <span class="text-primary">US</span>
+                    </h2>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Our Studio</h3>
+                                <p class="text-lg">72-73 Margaret Street, London, England, W1W 8TL</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Email Us</h3>
+                                <p class="text-lg">info@obstaclefilms.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4 mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Call Us</h3>
+                                <p class="text-lg">+44 (0)20 7123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-12">
+                        <h3 class="font-bold text-xl mb-4">Follow Us</h3>
+                        <div class="flex space-x-6">
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-vimeo-v"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-accent text-2xl transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">Office Hours</h3>
+                        <p class="text-lg">Monday - Friday: 9am - 6pm</p>
+                        <p class="text-lg">Saturday: 10am - 4pm (By appointment)</p>
+                        <p class="text-lg">Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-6">Send us a message</h3>
+                        <form id="contactForm">
+                            <div class="mb-6">
+                                <label for="name" class="block mb-2 text-lg">Your Name *</label>
+                                <input type="text" id="name" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition form-input" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="email" class="block mb-2 text-lg">Email Address *</label>
+                                <input type="email" id="email" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition form-input" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="company" class="block mb-2 text-lg">Company</label>
+                                <input type="text" id="company" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition form-input">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="project" class="block mb-2 text-lg">Project Type *</label>
+                                <select id="project" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition form-input" required>
+                                    <option value="">Select a project type</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="music-video">Music Video</option>
+                                    <option value="short-film">Short Film</option>
+                                    <option value="documentary">Documentary</option>
+                                    <option value="branded-content">Branded Content</option>
+                                    <option value="social-content">Social Content</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="budget" class="block mb-2 text-lg">Project Budget</label>
+                                <select id="budget" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition form-input">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-10k">Under £10,000</option>
+                                    <option value="10k-25k">£10,000 - £25,000</option>
+                                    <option value="25k-50k">£25,000 - £50,000</option>
+                                    <option value="50k-100k">£50,000 - £100,000</option>
+                                    <option value="100k-plus">£100,000+</option>
+                                    <option value="not-sure">Not sure yet</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block mb-2 text-lg">Your Message *</label>
+                                <textarea id="message" rows="5" class="w-full bg-black bg-opacity-70 border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:border-primary transition form-input" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-accent text-black font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-display mb-8 text-center">
+                OUR <span class="text-primary">LOCATION</span>
+            </h2>
+            
+            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.78852882322!2d-0.1423904230598365!3d51.51744397181429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b28e6c0c7e7%3A0x538a7c5e4c2c8a0!2sMargaret%20St%2C%20London%2C%20UK!5e0!3m2!1sen!2sus!4v1690212345678!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full h-96">
+                    </iframe>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Obstacle Films Studio</h3>
+                    <p class="text-gray-300">72-73 Margaret Street, London, England, W1W 8TL</p>
+                    <p class="text-gray-300 mt-2">Nearest tube: Oxford Circus (5 min walk)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">CLIENTS</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    We've had the privilege of working with amazing brands and organizations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="client-logo text-center text-xl font-bold p-4">NIKE</div>
+                <div class="client-logo text-center text-xl font-bold p-4">ADIDAS</div>
+                <div class="client-logo text-center text-xl font-bold p-4">APPLE</div>
+                <div class="client-logo text-center text-xl font-bold p-4">SONY</div>
+                <div class="client-logo text-center text-xl font-bold p-4">BBC</div>
+                <div class="client-logo text-center text-xl font-bold p-4">CHANNEL 4</div>
+                <div class="client-logo text-center text-xl font-bold p-4">WARNER BROS</div>
+                <div class="client-logo text-center text-xl font-bold p-4">UNIVERSAL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-3xl font-display tracking-wider">
+                        <span class="text-primary">OBSTACLE</span> FILMS
+                    </a>
+                    <p class="mt-2 text-sm opacity-70">
+                        Creating visual stories that inspire and captivate.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold mb-2">Sectors</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Commercials</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Music Videos</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Narrative Films</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Fashion</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Services</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#services" class="hover:text-primary transition">Film Production</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Social Content</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Creative Direction</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Story Development</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Connect</h4>
+                        <ul class="space-y-1">
+                            <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Instagram</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Vimeo</a></li>
+                            <li><a href="#" class="hover:text-primary transition">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm opacity-70 mb-4 md:mb-0">
+                    &copy; 2023 Obstacle Films. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-vimeo-v"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href').startsWith('index.html')) return;
+                
+                e.preventDefault();
+                
+                // Close menu if open
+                if(contactMenu) contactMenu.classList.remove('active');
+                if(navMenuBtn) navMenuBtn.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Navigation menu button functionality
+        const navMenuBtn = document.getElementById('navMenuBtn');
+        const contactMenu = document.getElementById('contactMenu');
+        
+        if(navMenuBtn) {
+            navMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                contactMenu.classList.toggle('active');
+                navMenuBtn.classList.toggle('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenuBtn && !navMenuBtn.contains(e.target) && !contactMenu.contains(e.target)) {
+                contactMenu.classList.remove('active');
+                navMenuBtn.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking on a menu item
+        if(contactMenu) {
+            contactMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    contactMenu.classList.remove('active');
+                    if(navMenuBtn) navMenuBtn.classList.remove('active');
+                });
+            });
+        }
+        
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const project = document.getElementById('project').value;
+                const message = document.getElementById('message').value;
+                
+                if(!name || !email || !project || !message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Here you would normally send the form data to a server
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
