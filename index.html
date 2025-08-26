@@ -159,11 +159,54 @@
         .contact-menu a:last-child {
             border-bottom: none;
         }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 40;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: #FF5F00;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-secondary text-white font-sans">
-    <!-- Floating Contact Button -->
-    <div class="floating-contact" id="contactBtn">
+    <!-- Floating Contact Button (Hidden on desktop, visible on mobile) -->
+    <div class="floating-contact md:hidden" id="floatingContactBtn">
         <i class="fas fa-bars text-2xl text-white"></i>
     </div>
     
@@ -172,6 +215,20 @@
         <a href="#services">Services</a>
         <a href="#sectors">Sectors</a>
         <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#sectors" class="nav-link">Sectors</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#awards" class="nav-link">Awards</a>
+        <a href="#clients" class="nav-link">Clients</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <div class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -198,7 +255,7 @@
                 <a href="#" class="text-primary hover:text-accent transition">
                     <i class="fab fa-vimeo-v text-xl"></i>
                 </a>
-                <button class="md:hidden text-white focus:outline-none">
+                <button class="text-white focus:outline-none" id="navMenuBtn">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -832,6 +889,10 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
+                // Close menus if open
+                contactMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -852,17 +913,35 @@
         });
         
         // Floating contact menu functionality
-        const contactBtn = document.getElementById('contactBtn');
+        const floatingContactBtn = document.getElementById('floatingContactBtn');
         const contactMenu = document.getElementById('contactMenu');
+        const navMenuBtn = document.getElementById('navMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
         
-        contactBtn.addEventListener('click', () => {
+        // For mobile floating button
+        floatingContactBtn.addEventListener('click', () => {
             contactMenu.classList.toggle('active');
         });
         
-        // Close menu when clicking outside
+        // For navigation menu button (third button)
+        navMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close menus when clicking outside
         document.addEventListener('click', (e) => {
-            if (!contactBtn.contains(e.target) && !contactMenu.contains(e.target)) {
+            if (!floatingContactBtn.contains(e.target) && !contactMenu.contains(e.target)) {
                 contactMenu.classList.remove('active');
+            }
+            
+            if (!navMenuBtn.contains(e.target) && !mobileMenu.contains(e.target) && !closeMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
             }
         });
     </script>
