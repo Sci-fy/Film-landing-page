@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Obstacle Films | Premium Film Production</title>
+    <meta name="description" content="Explore our portfolio of stunning visual content - commercials, music videos, and narrative films that captivate audiences.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF5F00',
+                        secondary: '#1A1A1A',
+                        accent: '#FF9E00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .portfolio-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF5F00;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-video {
+            transition: all 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-video {
+            transform: scale(1.05);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 95, 0, 0.15);
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Contact menu styles */
+        .contact-menu {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 99;
+            background: rgba(26, 26, 26, 0.98);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 95, 0, 0.2);
+        }
+        
+        .contact-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .contact-menu a {
+            display: block;
+            color: white;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .contact-menu a:hover {
+            color: #FF5F00;
+            padding-left: 8px;
+        }
+        
+        .contact-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Navigation menu button style */
+        .nav-menu-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-menu-btn:hover {
+            background: rgba(255, 95, 0, 0.2);
+        }
+        
+        .nav-menu-btn.active {
+            background: rgba(255, 95, 0, 0.3);
+        }
+        
+        /* Video play button */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 95, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .play-button:hover {
+            background: rgba(255, 95, 0, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            transition: transform 0.5s ease;
+        }
+        
+        .video-container:hover video {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-secondary text-white font-sans">
+    <!-- Contact Menu -->
+    <div class="contact-menu" id="contactMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#services">Services</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-90 z-50 py-4 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-display tracking-wider">
+                <span class="text-primary">OBSTACLE</span> FILMS
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#sectors" class="nav-link">Sectors</a>
+                <a href="portfolio.html" class="nav-link text-primary">Portfolio</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#awards" class="nav-link">Awards</a>
+                <a href="index.html#clients" class="nav-link">Clients</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-primary hover:text-accent transition">
+                    <i class="fab fa-vimeo-v text-xl"></i>
+                </a>
+                <div class="nav-menu-btn" id="navMenuBtn">
+                    <i class="fas fa-bars text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero Section -->
+    <section class="portfolio-hero pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-display mb-6">
+                OUR <span class="text-primary">PORTFOLIO</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+                Explore our selection of work that showcases our creative vision and technical expertise.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Portfolio Section -->
+    <section id="services" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    VIDEO <span class="text-primary">PRODUCTION</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Full-service video production from concept to delivery for commercials, music videos, and documentaries.
+                </p>
+            </div>
+            
+            <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
+                <div class="video-container">
+                    <video class="w-full h-auto portfolio-video" muted loop>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-dancing-at-a-music-festival-1232-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button" onclick="togglePlay(this)">
+                        <i class="fas fa-play text-2xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Nike - "Just Do It" Campaign</h3>
+                    <p class="text-primary font-semibold mb-4">Commercial</p>
+                    <p class="mb-4">A high-energy commercial showcasing athletes pushing their limits, filmed across five different countries.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Commercial</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Sports</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Global</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    SOCIAL <span class="text-primary">CONTENT</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Engaging content optimized for social media platforms including Instagram, TikTok, and YouTube.
+                </p>
+            </div>
+            
+            <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
+                <div class="video-container">
+                    <video class="w-full h-auto portfolio-video" muted loop>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-neon-lights-1230-large.mp4" type="video/mmp4">
+                    </video>
+                    <div class="play-button" onclick="togglePlay(this)">
+                        <i class="fas fa-play text-2xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Adidas - "Behind the Design" Series</h3>
+                    <p class="text-primary font-semibold mb-4">Social Content</p>
+                    <p class="mb-4">A series of short-form content pieces showcasing the design process behind Adidas' latest sustainable sportswear line.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Social Media</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Behind the Scenes</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Fashion</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    CREATIVE <span class="text-primary">STUDIO</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Creative direction and concept development for brand campaigns and visual storytelling.
+                </p>
+            </div>
+            
+            <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
+                <div class="video-container">
+                    <video class="w-full h-auto portfolio-video" muted loop>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-audience-in-a-conference-center-34515-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button" onclick="togglePlay(this)">
+                        <i class="fas fa-play text-2xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Apple - "Creative Vision" Campaign</h3>
+                    <p class="text-primary font-semibold mb-4">Creative Direction</p>
+                    <p class="mb-4">A comprehensive campaign showcasing how creative professionals use Apple products to bring their visions to life.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Creative Direction</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Brand Campaign</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Technology</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    STORYTELLING <span class="text-primary">LAB</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Developing compelling narratives and scripts for brand films and commercial campaigns.
+                </p>
+            </div>
+            
+            <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
+                <div class="video-container">
+                    <video class="w-full h-auto portfolio-video" muted loop>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-woman-looking-through-a-window-41701-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button" onclick="togglePlay(this)">
+                        <i class="fas fa-play text-2xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">"Human Element" - Climate Change Documentary</h3>
+                    <p class="text-primary font-semibold mb-4">Documentary Storytelling</p>
+                    <p class="mb-4">A BIFA-nominated documentary exploring the human stories behind climate change, filmed across 12 countries over three years.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Documentary</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Climate</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Global</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    CONTENT <span class="text-primary">STRATEGY</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Strategic planning for content creation, distribution, and multi-platform campaigns.
+                </p>
+            </div>
+            
+            <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
+                <div class="video-container">
+                    <video class="w-full h-auto portfolio-video" muted loop>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-group-of-people-gathering-around-a-woman-43570-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button" onclick="togglePlay(this)">
+                        <i class="fas fa-play text-2xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Sony - "Global Launch" Content Strategy</h3>
+                    <p class="text-primary font-semibold mb-4">Content Strategy</p>
+                    <p class="mb-4">A comprehensive content strategy for Sony's global product launch, coordinating across multiple platforms and markets.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Strategy</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Global</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Multi-platform</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    <span class="text-primary">PHOTOGRAPHY</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Professional photography services for brands, including behind-the-scenes and campaign stills.
+                </p>
+            </div>
+            
+            <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                <div class="video-container">
+                    <video class="w-full h-auto portfolio-video" muted loop>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-a-studio-41502-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button" onclick="togglePlay(this)">
+                        <i class="fas fa-play text-2xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Vogue - Fashion Editorial</h3>
+                    <p class="text-primary font-semibold mb-4">Fashion Photography</p>
+                    <p class="mb-4">A fashion editorial spread for Vogue magazine, featuring emerging designers and innovative styling techniques.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Fashion</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Editorial</span>
+                        <span class="bg-primary text-black px-3 py-1 rounded-full text-sm">Studio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">SERVICES</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Comprehensive creative production services tailored to your needs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-secondary p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Video Production</h3>
+                    <p class="mb-4">
+                        Full-service video production from concept to delivery for commercials, music videos, and documentaries.
+                    </p>
+                    <a href="#services" class="text-primary font-semibold">View Examples →</a>
+                </div>
+                
+                <div class="service-card bg-secondary p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Social Content</h3>
+                    <p class="mb-4">
+                        Engaging content optimized for social media platforms including Instagram, TikTok, and YouTube.
+                    </p>
+                    <a href="#services" class="text-primary font-semibold">View Examples →</a>
+                </div>
+                
+                <div class="service-card bg-secondary p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Creative Studio</h3>
+                    <p class="mb-4">
+                        Creative direction and concept development for brand campaigns and visual storytelling.
+                    </p>
+                    <a href="#services" class="text-primary font-semibold">View Examples →</a>
+                </div>
+                
+                <div class="service-card bg-secondary p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Storytelling Lab</h3>
+                    <p class="mb-4">
+                        Developing compelling narratives and scripts for brand films and commercial campaigns.
+                    </p>
+                    <a href="#services" class="text-primary font-semibold">View Examples →</a>
+                </div>
+                
+                <div class="service-card bg-secondary p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Content Strategy</h3>
+                    <p class="mb-4">
+                        Strategic planning for content creation, distribution, and multi-platform campaigns.
+                    </p>
+                    <a href="#services" class="text-primary font-semibold">View Examples →</a>
+                </div>
+                
+                <div class="service-card bg-secondary p-8 rounded-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Photography</h3>
+                    <p class="mb-4">
+                        Professional photography services for brands, including behind-the-scenes and campaign stills.
+                    </p>
+                    <a href="#services" class="text-primary font-semibold">View Examples →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display mb-4">
+                    OUR <span class="text-primary">CLIENTS</span>
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    We've had the privilege of working with amazing brands and organizations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="client-logo text-center text-xl font-bold p-4">NIKE</div>
+                <div class="client-logo text-center text-xl font-bold p-4">ADIDAS</div>
+                <div class="client-logo text-center text-xl font-bold p-4">APPLE</div>
+                <div class="client-logo text-center text-xl font-bold p-4">SONY</div>
+                <div class="client-logo text-center text-xl font-bold p-4">BBC</div>
+                <div class="client-logo text-center text-xl font-bold p-4">CHANNEL 4</div>
+                <div class="client-logo text-center text-xl font-bold p-4">WARNER BROS</div>
+                <div class="client-logo text-center text-xl font-bold p-4">UNIVERSAL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary text-black">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-display mb-6">
+                READY TO CREATE <span class="text-white">TOGETHER?</span>
+            </h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Let's discuss how we can bring your vision to life through powerful storytelling.
+            </p>
+            <a href="contact.html" class="bg-black text-primary hover:bg-secondary hover:text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 inline-block">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-3xl font-display tracking-wider">
+                        <span class="text-primary">OBSTACLE</span> FILMS
+                    </a>
+                    <p class="mt-2 text-sm opacity-70">
+                        Creating visual stories that inspire and captivate.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-bold mb-2">Sectors</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Commercials</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Music Videos</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Narrative Films</a></li>
+                            <li><a href="index.html#sectors" class="hover:text-primary transition">Fashion</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Services</h4>
+                        <ul class="space-y-1">
+                            <li><a href="index.html#services" class="hover:text-primary transition">Video Production</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Social Content</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Creative Studio</a></li>
+                            <li><a href="index.html#services" class="hover:text-primary transition">Storytelling Lab</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Connect</h4>
+                        <ul class="space-y-1">
+                            <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Instagram</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Vimeo</a></li>
+                            <li><a href="#" class="hover:text-primary transition">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm opacity-70 mb-4 md:mb-0">
+                    &copy; 2025 Obstacle Films. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-vimeo-v"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href').startsWith('index.html')) return;
+                
+                e.preventDefault();
+                
+                // Close menu if open
+                if(contactMenu) contactMenu.classList.remove('active');
+                if(navMenuBtn) navMenuBtn.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Navigation menu button functionality
+        const navMenuBtn = document.getElementById('navMenuBtn');
+        const contactMenu = document.getElementById('contactMenu');
+        
+        if(navMenuBtn) {
+            navMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                contactMenu.classList.toggle('active');
+                navMenuBtn.classList.toggle('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenuBtn && !navMenuBtn.contains(e.target) && !contactMenu.contains(e.target)) {
+                contactMenu.classList.remove('active');
+                navMenuBtn.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking on a menu item
+        if(contactMenu) {
+            contactMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    contactMenu.classList.remove('active');
+                    if(navMenuBtn) navMenuBtn.classList.remove('active');
+                });
+            });
+        }
+        
+        // Video play functionality
+        function togglePlay(button) {
+            const videoContainer = button.parentElement;
+            const video = videoContainer.querySelector('video');
+            
+            if (video.paused) {
+                video.play();
+                button.innerHTML = '<i class="fas fa-pause text-2xl text-white"></i>';
+            } else {
+                video.pause();
+                button.innerHTML = '<i class="fas fa-play text-2xl text-white"></i>';
+            }
+        }
+        
+        // Reset play buttons when videos end
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('ended', function() {
+                const button = this.parentElement.querySelector('.play-button');
+                if(button) {
+                    button.innerHTML = '<i class="fas fa-play text-2xl text-white"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
