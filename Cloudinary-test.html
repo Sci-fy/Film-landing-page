@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloudinary Video Player</title>
-    <!-- Cloudinary Video Player CSS -->
-    <link href="https://unpkg.com/cloudinary-video-player@1.9.4/dist/cld-video-player.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -57,18 +53,24 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             margin-bottom: 40px;
-            padding: 20px;
+            padding: 30px;
         }
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
             overflow: hidden;
             border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        #player {
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+        
+        .iframe-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -173,6 +175,7 @@
             overflow-x: auto;
             margin: 20px 0;
             font-family: monospace;
+            white-space: pre-wrap;
         }
         
         .note {
@@ -181,6 +184,14 @@
             padding: 15px;
             margin: 20px 0;
             border-radius: 4px;
+        }
+        
+        .troubleshooting {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
         }
         
         footer {
@@ -216,26 +227,30 @@
     <div class="container">
         <header>
             <h1>Cloudinary Video Player</h1>
-            <p class="subtitle">A responsive, customizable video player for your Cloudinary videos</p>
+            <p class="subtitle">Embed your Cloudinary videos with this responsive iframe solution</p>
         </header>
         
         <div class="video-container">
             <div class="video-wrapper">
-                <!-- Cloudinary Video Player will be embedded here -->
-                <video
-                    id="player"
-                    controls
-                    muted
-                    class="cld-video-player"
-                    width="600"
-                ></video>
+                <div class="iframe-container">
+                    <iframe
+                        src="https://player.cloudinary.com/embed/?cloud_name=duuhkyscq&public_id=istockphoto-1586471923-640_adpp_is_hkkqmn&profile=cld-default"
+                        width="640"
+                        height="360" 
+                        style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                        allowfullscreen
+                        frameborder="0"
+                    ></iframe>
+                </div>
             </div>
             
             <div class="video-info">
                 <h3 class="video-title">Nature Video Sample</h3>
                 <div class="video-actions">
-                    <button class="btn"><i class="fas fa-download"></i> Download</button>
-                    <button class="btn btn-share"><i class="fas fa-share-alt"></i> Share</button>
+                    <button class="btn" id="playBtn"><i class="fas fa-play"></i> Play</button>
+                    <button class="btn" id="pauseBtn"><i class="fas fa-pause"></i> Pause</button>
+                    <button class="btn btn-share" id="shareBtn"><i class="fas fa-share-alt"></i> Share</button>
                 </div>
             </div>
         </div>
@@ -250,59 +265,57 @@
                 </div>
                 
                 <div class="step">
-                    <h3><span class="step-number">2</span>Include Required Libraries</h3>
-                    <p>Add these lines to your HTML head section to load the Cloudinary Video Player assets.</p>
+                    <h3><span class="step-number">2</span>Use the iframe Embed Code</h3>
+                    <p>Copy the iframe embed code provided by Cloudinary or use the code shown below.</p>
                 </div>
                 
                 <div class="step">
-                    <h3><span class="step-number">3</span>Create Video Element</h3>
-                    <p>Add a video element with an ID that will be used to initialize the player.</p>
+                    <h3><span class="step-number">3</span>Paste into Your HTML</h3>
+                    <p>Insert the iframe code into your HTML file where you want the video to appear.</p>
                 </div>
                 
                 <div class="step">
-                    <h3><span class="step-number">4</span>Initialize the Player</h3>
-                    <p>Use JavaScript to initialize the player with your cloud name and video public ID.</p>
+                    <h3><span class="step-number">4</span>Customize as Needed</h3>
+                    <p>Adjust the width, height, or add additional parameters to the URL as needed.</p>
                 </div>
             </div>
             
             <h2>Implementation Code</h2>
             
-            <div class="code-block">
-// Include these in your &lt;head&gt; section
-&lt;link href="https://unpkg.com/cloudinary-video-player@1.9.4/dist/cld-video-player.min.css" rel="stylesheet"&gt;
-&lt;script src="https://unpkg.com/cloudinary-video-player@1.9.4/dist/cld-video-player.min.js"&gt;&lt;/script&gt;
-
-// HTML video element
-&lt;video
-  id="player"
-  controls
-  muted
-  class="cld-video-player"
-  width="600"
-&gt;&lt;/video&gt;
-
-// JavaScript initialization
-&lt;script&gt;
-  const player = cloudinary.videoPlayer('player', {
-    cloudName: 'duuhkyscq',
-    publicId: 'istockphoto-1586471923-640_adpp_is_hkkqmn',
-    profile: 'cld-default'
-  });
-&lt;/script&gt;
-            </div>
+            <div class="code-block">&lt;iframe
+  src="https://player.cloudinary.com/embed/?cloud_name=duuhkyscq&public_id=istockphoto-1586471923-640_adpp_is_hkkqmn&profile=cld-default"
+  width="640"
+  height="360" 
+  style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+  allowfullscreen
+  frameborder="0"
+&gt;&lt;/iframe&gt;</div>
             
             <div class="note">
-                <p><strong>Note:</strong> Make sure to include the Cloudinary Video Player library before initializing the player. The player will automatically handle responsive sizing and provide a consistent experience across devices.</p>
+                <p><strong>Note:</strong> The iframe embed method is the recommended way to embed Cloudinary videos as it handles all the complexity of video playback and ensures compatibility across different browsers and devices.</p>
+            </div>
+            
+            <div class="troubleshooting">
+                <h2>Troubleshooting Tips</h2>
+                <p>If your video isn't playing, try these solutions:</p>
+                <ul>
+                    <li>Check that your cloud_name and public_id are correct</li>
+                    <li>Ensure the video has finished processing on Cloudinary</li>
+                    <li>Try using a different browser</li>
+                    <li>Check if any browser extensions are blocking the video</li>
+                    <li>Verify that your internet connection is working properly</li>
+                </ul>
             </div>
             
             <h2>Additional Features</h2>
-            <p>The Cloudinary Video Player supports many advanced features including:</p>
+            <p>The Cloudinary Video Player supports many advanced features that you can add as parameters to the URL:</p>
             <ul>
-                <li>Custom branding and skins</li>
-                <li>Video analytics</li>
-                <li>Adaptive bitrate streaming</li>
-                <li>Playlists and video transformations</li>
-                <li>Advertising integrations</li>
+                <li>Autoplay: &autoplay=true</li>
+                <li>Muted: &muted=true</li>
+                <li>Loop: &loop=true</li>
+                <li>Custom controls: &controls=false</li>
+                <li>Video transformations: &transformation=...</li>
             </ul>
         </div>
         
@@ -311,27 +324,19 @@
         </footer>
     </div>
 
-    <!-- Cloudinary Video Player JS -->
-    <script src="https://unpkg.com/cloudinary-video-player@1.9.4/dist/cld-video-player.min.js"></script>
-    
     <script>
-        // Initialize Cloudinary Video Player with your specific configuration
-        const player = cloudinary.videoPlayer('player', {
-            cloudName: 'duuhkyscq',
-            publicId: 'istockphoto-1586471923-640_adpp_is_hkkqmn',
-            profile: 'cld-default'
+        // Since we can't control the iframe directly due to cross-origin restrictions,
+        // these buttons are just for demonstration purposes
+        document.getElementById('playBtn').addEventListener('click', function() {
+            alert('In a real implementation, this would play the video. With iframes, you would need to use postMessage API to control the video player.');
         });
         
-        // You can customize the player with additional options
-        player.width('100%');
-        
-        // Add event listeners for the buttons
-        document.querySelector('.btn-share').addEventListener('click', function() {
-            alert('Share this video using the URL: https://cloudinary.com/...');
+        document.getElementById('pauseBtn').addEventListener('click', function() {
+            alert('In a real implementation, this would pause the video.');
         });
         
-        document.querySelector('.btn:not(.btn-share)').addEventListener('click', function() {
-            alert('Download option would be implemented here');
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            alert('Share this video using the URL: https://player.cloudinary.com/embed/?cloud_name=duuhkyscq&public_id=istockphoto-1586471923-640_adpp_is_hkkqmn');
         });
     </script>
 </body>
