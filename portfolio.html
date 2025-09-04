@@ -147,40 +147,52 @@
             background: rgba(255, 95, 0, 0.3);
         }
         
-        /* Video play button */
-        .play-button {
+        /* Vimeo iframe container */
+        .vimeo-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .vimeo-container iframe {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 95, 0, 0.8);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .vimeo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             cursor: pointer;
+        }
+        
+        .vimeo-overlay:hover {
+            opacity: 1;
+        }
+        
+        .vimeo-play-icon {
+            font-size: 4rem;
+            color: rgba(255, 95, 0, 0.8);
             transition: all 0.3s ease;
-            z-index: 2;
         }
         
-        .play-button:hover {
-            background: rgba(255, 95, 0, 1);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-container {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .video-container video {
-            transition: transform 0.5s ease;
-        }
-        
-        .video-container:hover video {
-            transform: scale(1.05);
+        .vimeo-overlay:hover .vimeo-play-icon {
+            color: rgba(255, 95, 0, 1);
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -250,13 +262,8 @@
             </div>
             
             <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
-                <div class="video-container">
-                    <video class="w-full h-auto portfolio-video" muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-dancing-at-a-music-festival-1232-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-button" onclick="togglePlay(this)">
-                        <i class="fas fa-play text-2xl text-white"></i>
-                    </div>
+                <div class="vimeo-container">
+                    <iframe src="https://player.vimeo.com/video/49874711?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Video Production"></iframe>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-bold mb-2">Nike - "Just Do It" Campaign</h3>
@@ -280,13 +287,8 @@
             </div>
             
             <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
-                <div class="video-container">
-                    <video class="w-full h-auto portfolio-video" muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-neon-lights-1230-large.mp4" type="video/mmp4">
-                    </video>
-                    <div class="play-button" onclick="togglePlay(this)">
-                        <i class="fas fa-play text-2xl text-white"></i>
-                    </div>
+                <div class="vimeo-container">
+                    <iframe src="https://player.vimeo.com/video/1108430226?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Social Content"></iframe>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-bold mb-2">Adidas - "Behind the Design" Series</h3>
@@ -310,13 +312,8 @@
             </div>
             
             <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
-                <div class="video-container">
-                    <video class="w-full h-auto portfolio-video" muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-audience-in-a-conference-center-34515-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-button" onclick="togglePlay(this)">
-                        <i class="fas fa-play text-2xl text-white"></i>
-                    </div>
+                <div class="vimeo-container">
+                    <iframe src="https://player.vimeo.com/video/455950160?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Creative Studio"></iframe>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-bold mb-2">Apple - "Creative Vision" Campaign</h3>
@@ -340,13 +337,8 @@
             </div>
             
             <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
-                <div class="video-container">
-                    <video class="w-full h-auto portfolio-video" muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-woman-looking-through-a-window-41701-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-button" onclick="togglePlay(this)">
-                        <i class="fas fa-play text-2xl text-white"></i>
-                    </div>
+                <div class="vimeo-container">
+                    <iframe src="https://player.vimeo.com/video/117500243?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Storytelling Lab"></iframe>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-bold mb-2">"Human Element" - Climate Change Documentary</h3>
@@ -370,13 +362,8 @@
             </div>
             
             <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden mb-16">
-                <div class="video-container">
-                    <video class="w-full h-auto portfolio-video" muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-group-of-people-gathering-around-a-woman-43570-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-button" onclick="togglePlay(this)">
-                        <i class="fas fa-play text-2xl text-white"></i>
-                    </div>
+                <div class="vimeo-container" style="padding-bottom: 51.14%">
+                    <iframe src="https://player.vimeo.com/video/1062810852?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Content Strategy"></iframe>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-bold mb-2">Sony - "Global Launch" Content Strategy</h3>
@@ -400,13 +387,8 @@
             </div>
             
             <div class="portfolio-item bg-black bg-opacity-50 rounded-lg overflow-hidden">
-                <div class="video-container">
-                    <video class="w-full h-auto portfolio-video" muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-a-studio-41502-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-button" onclick="togglePlay(this)">
-                        <i class="fas fa-play text-2xl text-white"></i>
-                    </div>
+                <div class="vimeo-container">
+                    <iframe src="https://player.vimeo.com/video/130424475?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Photography"></iframe>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-bold mb-2">Vogue - Fashion Editorial</h3>
@@ -660,30 +642,6 @@
                 });
             });
         }
-        
-        // Video play functionality
-        function togglePlay(button) {
-            const videoContainer = button.parentElement;
-            const video = videoContainer.querySelector('video');
-            
-            if (video.paused) {
-                video.play();
-                button.innerHTML = '<i class="fas fa-pause text-2xl text-white"></i>';
-            } else {
-                video.pause();
-                button.innerHTML = '<i class="fas fa-play text-2xl text-white"></i>';
-            }
-        }
-        
-        // Reset play buttons when videos end
-        document.querySelectorAll('video').forEach(video => {
-            video.addEventListener('ended', function() {
-                const button = this.parentElement.querySelector('.play-button');
-                if(button) {
-                    button.innerHTML = '<i class="fas fa-play text-2xl text-white"></i>';
-                }
-            });
-        });
     </script>
 </body>
-</html>
+    </html>
